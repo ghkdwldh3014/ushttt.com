@@ -1,0 +1,29 @@
+:root{--bg:#0e0f12;--fg:#e8eaf0;--muted:#a8b0bf;--accent:#5dd0ff;--x:#ff5d8f;--o:#8be37a;--warn:#ffcc66}
+*{box-sizing:border-box}
+html,body,#app-root{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji}
+a{color:var(--accent)}
+.container{max-width:1200px;margin:0 auto;padding:16px}
+.header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.select{background:#1a1c22;color:var(--fg);border:1px solid #2a2d36;padding:8px 10px;border-radius:8px}
+.button{background:var(--accent);color:#001420;border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+.button.secondary{background:#1a1c22;color:var(--fg);border:1px solid #2a2d36}
+.grid{display:grid;gap:6px}
+.board{--size:96vmin; --cell-gap:6px;display:grid;gap:var(--cell-gap);grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);aspect-ratio:1;border:2px solid #2a2d36;border-radius:8px;background:#12141a}
+.subboard{display:grid;gap:4px;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);border:1px solid #2a2d36;border-radius:6px;padding:3px;background:#0f1015;position:relative}
+.cell{display:flex;align-items:center;justify-content:center;background:#151823;border:1px solid #202433;border-radius:4px;cursor:pointer;user-select:none}
+.cell.disabled{cursor:not-allowed;opacity:.45}
+.cell.legal{outline:2px solid rgba(93,208,255,.35)}
+.cell:hover{background:#1a1e2b}
+.mark{font-size:clamp(18px,3.2vmin,36px);font-weight:800}
+.mark.x{color:var(--x)}
+.mark.o{color:var(--o)}
+.forceHint{position:absolute;inset:0;border:2px dashed rgba(93,208,255,.35);border-radius:6px;pointer-events:none}
+.statusBar{display:flex;gap:10px;align-items:center;margin-top:10px}
+.timer{flex:1;background:#1a1c22;border:1px solid #2a2d36;border-radius:10px;overflow:hidden;height:32px;display:flex;align-items:center}
+.timerInner{height:100%;transition:width .2s linear}
+.timerLabel{position:absolute;width:100%;text-align:center;font-weight:700}
+.badge{font-size:12px;padding:3px 8px;border-radius:9999px;background:#1a1c22;border:1px solid #2a2d36;color:var(--muted)}
+.footer{margin-top:16px;color:var(--muted);font-size:12px}
+.winBanner{margin-top:12px;padding:10px 12px;border-radius:10px;background:#112616;border:1px solid #1e3a25;color:#a7f3d0}
+.drawBanner{margin-top:12px;padding:10px 12px;border-radius:10px;background:#262211;border:1px solid #3a2f1e;color:#f3e7a7}
