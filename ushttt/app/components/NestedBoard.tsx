@@ -15,7 +15,7 @@ export function NestedBoard({ root, onPlay, legalSet, forcedPrefix, lastPath }: 
     if (node.depth === 1) {
       return (
         <div className="subboard">
-          {forcedPrefix && startsWith(pathPrefix, forcedPrefix) && <div className="forceHint" />}
+          {forcedPrefix && startsWith(forcedPrefix, pathPrefix) && <div className="forceHint" />}
           {node.cells.map((cell, idx) => {
             const path = [...pathPrefix, idx];
             const key = path.join(".");
@@ -36,7 +36,7 @@ export function NestedBoard({ root, onPlay, legalSet, forcedPrefix, lastPath }: 
     // depth > 1
     return (
       <div className="subboard">
-        {forcedPrefix && startsWith(pathPrefix, forcedPrefix) && <div className="forceHint" />}
+        {forcedPrefix && startsWith(forcedPrefix, pathPrefix) && <div className="forceHint" />}
         {node.cells.map((child, idx) => {
           if (child.kind !== "board") return <div key={idx} className="cell disabled" />;
           const childPrefix = [...pathPrefix, idx];
