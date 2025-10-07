@@ -100,7 +100,13 @@ export default function Page() {
   }, [winner, draw]);
 
   const legal = useMemo(() => new Set(legalMoves(root, lastPath).map((p) => p.join("."))), [root, lastPath]);
-  const forcedPrefix = useMemo(() => (lastPath ? lastPath.slice(1) : null), [lastPath]);
+  const forcedPrefix = useMemo(() => {
+    if (!lastPath) return null;
+    const forced = lastPath.slice(1);
+    const forcedStr = forced.join(".");
+    const allUnderForced = Array.from(legal).every((k) => k.startsWith(forcedStr + "."));
+    return allUnderForced ? forced : null;
+  }, [lastPath, legal]);
 
   const onPlay = (path: MovePath) => {
     if (!running) return;

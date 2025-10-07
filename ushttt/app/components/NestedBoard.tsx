@@ -45,12 +45,12 @@ export function NestedBoard({ root, onPlay, legalSet, forcedPrefix, lastPath }: 
           let overlay: React.ReactNode = null;
           if (child.status === "won_X" || child.status === "won_O") {
             const who = child.status === "won_X" ? "X" : "O";
-            overlay = <div className="cell" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,.15)" }}>
+            overlay = <div className="cell" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,.15)", pointerEvents: "none" }}>
               <span className={`mark ${who === "X" ? "x" : "o"}`} style={{ fontSize: "clamp(22px,4vmin,48px)" }}>{who}</span>
             </div>;
           }
           if (child.status === "draw") {
-            overlay = <div className="cell" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,.1)", color: "var(--muted)", fontWeight: 700 }}>D</div>;
+            overlay = <div className="cell" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,.1)", color: "var(--muted)", fontWeight: 700, pointerEvents: "none" }}>D</div>;
           }
           return (
             <div key={idx} style={{ position: "relative" }}>
